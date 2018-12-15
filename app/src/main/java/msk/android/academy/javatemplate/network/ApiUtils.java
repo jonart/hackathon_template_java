@@ -2,6 +2,8 @@ package msk.android.academy.javatemplate.network;
 
 import com.google.gson.Gson;
 
+import java.util.concurrent.TimeUnit;
+
 import msk.android.academy.javatemplate.BuildConfig;
 import okhttp3.Credentials;
 import okhttp3.OkHttpClient;
@@ -17,9 +19,13 @@ public class ApiUtils {
     private static Gson gson;
     private static Api api;
 
-    public static OkHttpClient getBasicAuthClient(final String email, final String password, boolean newInstance) {
-        if (newInstance || okHttpClient == null) {
+    public static OkHttpClient getBasicAuthClient() {
+        if (okHttpClient == null) {
             OkHttpClient.Builder builder = new OkHttpClient.Builder();
+            builder.writeTimeout(20, TimeUnit.SECONDS);
+            builder.callTimeout(20, TimeUnit.SECONDS);
+            builder.readTimeout(20, TimeUnit.SECONDS);
+            builder.connectTimeout(20, TimeUnit.SECONDS);
 
 //            builder.authenticator((route, response) -> {
 //                String credential = Credentials.basic(email, password);
@@ -34,34 +40,32 @@ public class ApiUtils {
         return okHttpClient;
     }
 
-    public static Retrofit getRetrofitWithConverter(boolean isNeeded) {
-        if(gson == null){
+    public static Retrofit getRetrofitWithConverter() {
+        if (gson == null) {
             gson = new Gson();
         }
-        if (isNeeded) {
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(BuildConfig.SERVER_URL)
-                    //need for interceptors
-//                    .client(getBasicAuthClient("", "", false))
-                    .addConverterFactory(GsonConverterFactory.create(gson))
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .build();
-        }
-        if (!isNeeded){
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(BuildConfig.SERVER_URL)
-                    //need for interceptors
-                    .client(getBasicAuthClient("", "", false))
-                    .addConverterFactory(GsonConverterFactory.create(gson))
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .build();
-        }
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BuildConfig.SERVER_URL)
+                //need for interceptors
+                .client(getBasicAuthClient())
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build();
+//        if (!isNeeded){
+//            retrofit = new Retrofit.Builder()
+//                    .baseUrl(BuildConfig.SERVER_URL)
+//                    //need for interceptors
+////                    .client(getBasicAuthClient("", "", false))
+//                    .addConverterFactory(GsonConverterFactory.create(gson))
+//                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//                    .build();
+//        }
 
         return retrofit;
     }
 
-    public static Api getApiService(boolean isNeeded){
-        api = getRetrofitWithConverter(isNeeded).create(Api.class);
+    public static Api getApiService() {
+        api = getRetrofitWithConverter().create(Api.class);
         return api;
     }
 

@@ -12,21 +12,9 @@ import msk.android.academy.javatemplate.network.ApiUtils;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.btn)
-    Button btn;
-    @BindView(R.id.et)
-    EditText et;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               Single<String> a =  ApiUtils.getApiService(false).getString();
-            }
-        });
     }
 }
