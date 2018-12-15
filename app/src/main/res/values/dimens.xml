@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    ////////auth
+    <dimen name="button_side">16dp</dimen>
+    <dimen name="button_up">45dp</dimen>
+    <dimen name="button_between">10dp</dimen>
+    <dimen name="text_size">17sp</dimen>
+    <dimen name="text_size2">21sp</dimen>
+    ///////////
+    <dimen name="margin_bottom">45dp</dimen>
+</resources>
