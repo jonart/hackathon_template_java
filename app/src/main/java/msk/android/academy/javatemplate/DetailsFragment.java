@@ -27,7 +27,7 @@ public class DetailsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
        // super.onViewCreated(view, savedInstanceState);
         progress = view.findViewById(R.id.progress_bar);
-        describtion = view.findViewById(R.id.describtion);
+        describtion = view.findViewById(R.id.description);
         country = view.findViewById(R.id.country);
     }
 }
