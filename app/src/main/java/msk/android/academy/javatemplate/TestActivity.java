@@ -44,7 +44,7 @@ public class TestActivity extends AppCompatActivity {
     private final int REQ_CODE_SPEECH_INPUT = 100;
     private static final int TAKE_PICTURE = 1;
     private Uri imageUri;
-    private final Adapter mAdapter = new Adapter();
+    private MovieAdapter mAdapter;
     PermissionHelper permissionHelper = new PermissionHelper(this);
     private RecyclerView mRecyclerView;
     String mCurrentPhotoPath;
@@ -87,7 +87,7 @@ public class TestActivity extends AppCompatActivity {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(resModel -> {
-                            mAdapter.addData(resModel);
+                           mAdapter = new MovieAdapter(this,resModel);
                         }, error -> {
                             if (error instanceof SocketTimeoutException) {
                             }

@@ -14,6 +14,7 @@ public class ListFragment extends Fragment {
     private RecyclerView recyclerView;
     private MovieAdapter adapter;
     private GridLayoutManager manager;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

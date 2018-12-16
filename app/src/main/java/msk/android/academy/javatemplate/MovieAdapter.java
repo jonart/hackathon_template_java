@@ -17,10 +17,11 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import msk.android.academy.javatemplate.network.response.FilmModel;
+
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder> {
     private Context context;
     private List<FilmModel> movieList;
-    private FilmModel film;
 
     public MovieAdapter(Context context, List<FilmModel> movieList) {
         this.context = context;
@@ -30,30 +31,30 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
     @NonNull
     @Override
     public MovieHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.movie_adapter,viewGroup,false);
-         return new MovieHolder(view);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.movie_adapter, viewGroup, false);
+        return new MovieHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MovieHolder movieHolder, int i) {
-       movieHolder.name.setText(movieList.get(i).getTitle());
-       movieHolder.abstent.setText(R.string.disclaimer);   /// как бы заглушка
+        movieHolder.name.setText(movieList.get(i).getTitle());
+        movieHolder.abstent.setText(R.string.disclaimer);   /// как бы заглушка
 
-       Glide.with(context)
-             .load("http://images.vfl.ru/ii/1533673160/b5567d64/22803905.jpg")
-             .into(movieHolder.poster);
+        Glide.with(context)
+                .load("http://images.vfl.ru/ii/1533673160/b5567d64/22803905.jpg")
+                .into(movieHolder.poster);
 
-       movieHolder.movie.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               Bundle args = new Bundle();
+        movieHolder.movie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle args = new Bundle();
 
-               FragmentManager manager = ((AppCompatActivity)context).getSupportFragmentManager();
-               manager.beginTransaction()
-                       .replace(R.id.container,new DetailsFragment())
-                       .commit();
-           }
-       });
+                FragmentManager manager = ((AppCompatActivity) context).getSupportFragmentManager();
+                manager.beginTransaction()
+                        .replace(R.id.container, new DetailsFragment())
+                        .commit();
+            }
+        });
     }
 
     @Override
@@ -61,17 +62,17 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
         return movieList.size();
     }
 
-    public class MovieHolder extends RecyclerView.ViewHolder{
-      TextView abstent, name;
-      ImageView poster;
-      CardView movie;
+    public class MovieHolder extends RecyclerView.ViewHolder {
+        TextView abstent, name;
+        ImageView poster;
+        CardView movie;
 
         public MovieHolder(@NonNull View itemView) {
-         super(itemView);
-         name = itemView.findViewById(R.id.movie_name);
-         abstent = itemView.findViewById(R.id.abstent);
-         poster = itemView.findViewById(R.id.poster);
-         movie = itemView.findViewById(R.id.movie_view);
+            super(itemView);
+            name = itemView.findViewById(R.id.movie_name);
+            abstent = itemView.findViewById(R.id.abstent);
+            poster = itemView.findViewById(R.id.poster);
+            movie = itemView.findViewById(R.id.movie_view);
 
 
         }
