@@ -5,6 +5,12 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class FilmModel implements Serializable {
+    public FilmModel(int imdbId, String imdbIdLong, String title, int year) {
+        mImdbId = imdbId;
+        mImdbIdLong = imdbIdLong;
+        mTitle = title;
+        mYear = year;
+    }
 
     @SerializedName("imdb_id")
     private int mImdbId;

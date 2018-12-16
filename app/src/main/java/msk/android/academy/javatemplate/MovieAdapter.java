@@ -3,6 +3,7 @@ package msk.android.academy.javatemplate;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
@@ -48,10 +49,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
             @Override
             public void onClick(View view) {
                 Bundle args = new Bundle();
+                FilmModel filmModel = movieList.get(i);
+                args.putSerializable(DetailsFragment.class.getSimpleName(), filmModel);
+                Fragment detailsFragment = new DetailsFragment();
+                detailsFragment.setArguments(args);
 
                 FragmentManager manager = ((AppCompatActivity) context).getSupportFragmentManager();
                 manager.beginTransaction()
-                        .replace(R.id.container, new DetailsFragment())
+                        .replace(R.id.container, detailsFragment)
                         .commit();
             }
         });

@@ -1,7 +1,6 @@
 package msk.android.academy.javatemplate;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -21,7 +20,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -32,6 +30,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -39,6 +38,7 @@ import io.reactivex.schedulers.Schedulers;
 import msk.android.academy.javatemplate.network.ApiUtils;
 import msk.android.academy.javatemplate.network.CheckNetwork;
 import ru.alexbykov.nopermission.PermissionHelper;
+
 
 import static android.app.Activity.RESULT_OK;
 
@@ -88,13 +88,20 @@ public class SearchFragment extends Fragment {
                 ApiUtils.getApiService().sendSound(description.getText().toString())
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(resModel ->
-
-                                        mAdapter = new MovieAdapter(getActivity(),resModel)
-
+                        .subscribe(resModel -> {
+                                    Bundle args = new Bundle();
+                                   // args.put
+                                    OpenListCallBack callBack = (OpenListCallBack) getActivity();
+                                    callBack.openList();
+                                //    getActivity().getSupportFragmentManager().beginTransaction().add(R.id.container, new ListFragment()).commit();
+                                  //  mAdapter = new MovieAdapter(getActivity(), resModel)
+                                }
                                 , error -> {
-                            if (error instanceof SocketTimeoutException) {
-                            }
+                            Toast.makeText(getContext(),"Errorr",Toast.LENGTH_LONG).show();
+                                    OpenListCallBack callBack = (OpenListCallBack) getActivity();
+                                    callBack.openList();
+                        //    if (error instanceof SocketTimeoutException) {
+                       //     }
                         });
             }
             else {
