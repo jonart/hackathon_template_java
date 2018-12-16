@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
+
         if(fragment == null){
          fragmentManager.beginTransaction()
                         .add(R.id.container, new SearchFragment())

@@ -99,6 +99,7 @@ public class SearchFragment extends Fragment {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(resModel -> {
+
                                 }
                                 , error -> {
                                     if (error instanceof SocketTimeoutException) {
