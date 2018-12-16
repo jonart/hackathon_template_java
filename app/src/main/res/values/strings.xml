@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">JavaTemplate</string>
+    //////// auth
+    <string name="face">Facebook</string>
+    <string name="vkontakte">Vkontakte</string>
+    <string name="myworld">My World</string>
+    <string name="email_auth">email or login</string>
+
+    <string name="disclaimer">18+</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="speech_prompt">Say something&#8230;</string>

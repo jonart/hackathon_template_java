@@ -4,4 +4,9 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorGrey">#535353</color>
+    <color name="vkontakte">#5c7ea3</color>
+    <color name="facebook">#3b5998</color>
+    <color name="my_world">#ff7a06</color>
+    <color name="white_text">#ffffff</color>
+    <color name="color_line">#bd6c6666</color>
 </resources>
