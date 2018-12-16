@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="5"
+    android:layout_marginTop="@dimen/button_up"
+    android:layout_margin="@dimen/button_side"
+    android:orientation="vertical"> 
+    <Button
+        android:id="@+id/vk_button"
+        android:layout_width="match_parent"
+        android:text="@string/vkontakte"
+        android:background="@color/vkontakte"
+        android:layout_marginBottom="@dimen/button_between"
+        android:layout_height="wrap_content" /> 
+    <Button
+        android:id="@+id/face_btn"
+        android:background="@color/facebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/face"
+        android:layout_marginBottom="@dimen/button_side"
+        />
+    <Button
+        android:id="@+id/my_world_btn"
+        android:background="@drawable/gradient"
+        android:textColor="@color/white_text"
+        android:textSize="@dimen/text_size"
+        android:textAllCaps="true"
+        android:layout_width="match_parent"
+        android:text="@string/myworld"
+        android:layout_height="wrap_content"
+        />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="2"
+    android:layout_gravity="center"
+    android:gravity="center">
+  <Button
+      android:id="@+id/email_btn"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content" 
+      android:layout_margin="@dimen/button_side"/>
+</LinearLayout>
+
+
+</LinearLayout>
