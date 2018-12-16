@@ -45,6 +45,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
                 .load("http://images.vfl.ru/ii/1533673160/b5567d64/22803905.jpg")
                 .into(movieHolder.poster);
 
+        movieHolder.movie.setOnClickListener(view -> {
+            Bundle args = new Bundle();
+
+            FragmentManager manager = ((AppCompatActivity) context).getSupportFragmentManager();
+            manager.beginTransaction()
+                    .replace(R.id.container, new DetailsFragment())
+                    .commit();
         movieHolder.movie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
