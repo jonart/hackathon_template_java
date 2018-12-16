@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.FrameLayout;
 
 public class MainActivity extends AppCompatActivity implements OpenListCallBack {
-    private FrameLayout container;
+
     private FragmentManager fragmentManager;
 
     @Override

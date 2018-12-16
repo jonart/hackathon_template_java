@@ -65,6 +65,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
                 manager.beginTransaction()
                         .replace(R.id.container, detailsFragment)
                         .commit();
+
             }
         });
     }
