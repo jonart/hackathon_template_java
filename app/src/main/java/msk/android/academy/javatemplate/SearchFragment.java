@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -50,6 +51,7 @@ import ru.alexbykov.nopermission.PermissionHelper;
 
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static android.Manifest.permission_group.CAMERA;
+
 import static android.app.Activity.RESULT_OK;
 import static android.support.constraint.Constraints.TAG;
 
@@ -106,6 +108,22 @@ public class SearchFragment extends Fragment {
                                     }
                                 });
             } else {
+                                    Bundle args = new Bundle();
+                                   // args.put
+                                    OpenListCallBack callBack = (OpenListCallBack) getActivity();
+                                    callBack.openList();
+                                //    getActivity().getSupportFragmentManager().beginTransaction().add(R.id.container, new ListFragment()).commit();
+                                  //  mAdapter = new MovieAdapter(getActivity(), resModel)
+                                }
+                                , error -> {
+                            Toast.makeText(getContext(),"Errorr",Toast.LENGTH_LONG).show();
+                                    OpenListCallBack callBack = (OpenListCallBack) getActivity();
+                                    callBack.openList();
+                        //    if (error instanceof SocketTimeoutException) {
+                       //     }
+                        });
+            }
+            else {
                 Toast.makeText(getActivity(), "Please Check Internet Connect", Toast.LENGTH_LONG).show();
             }
         });

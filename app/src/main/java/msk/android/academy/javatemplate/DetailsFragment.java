@@ -11,10 +11,19 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import msk.android.academy.javatemplate.network.response.FilmModel;
+
 public class DetailsFragment extends Fragment {
     ProgressBar progress;
     TextView describtion, country, timing;
     ImageView image;
+    FilmModel film;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        film = (FilmModel) getArguments().getSerializable(DetailsFragment.class.getSimpleName());
+    }
 
     @Nullable
     @Override
@@ -26,8 +35,13 @@ public class DetailsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
        // super.onViewCreated(view, savedInstanceState);
+
         progress = view.findViewById(R.id.progress_bar);
         describtion = view.findViewById(R.id.description);
         country = view.findViewById(R.id.country);
+     //   country.setText(film.getTitle());
+        ((MainActivity) getActivity()).getSupportActionBar().setTitle(
+                film.getTitle());
+
     }
 }

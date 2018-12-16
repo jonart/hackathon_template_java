@@ -7,14 +7,16 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.FrameLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OpenListCallBack {
+    private FrameLayout container;
+    private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager = getSupportFragmentManager();
         Fragment fragment = fragmentManager.findFragmentById(R.id.container);
 
         ActionBar actionBar = getSupportActionBar();
@@ -27,4 +29,12 @@ public class MainActivity extends AppCompatActivity {
                         .commit();
         }
     }
+
+    @Override
+    public void openList() {
+        fragmentManager.beginTransaction()
+                       .replace(R.id.container, new ListFragment())
+                       .commit();
+    }
+
 }
