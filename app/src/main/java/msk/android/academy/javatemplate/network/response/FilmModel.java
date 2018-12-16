@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class ResModel implements Serializable {
+public class FilmModel implements Serializable {
 
     @SerializedName("imdb_id")
     private int mImdbId;

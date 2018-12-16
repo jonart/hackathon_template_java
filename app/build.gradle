@@ -40,6 +40,9 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
     implementation "io.reactivex.rxjava2:rxjava:$rxjava2_version"
 
+    //Permission
+    implementation "ru.alexbykov:nopermission:1.1.2"
+
     //retrofit, okhttp
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"

@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import msk.android.academy.javatemplate.network.response.ResModel;
+import msk.android.academy.javatemplate.network.response.FilmModel;
 
 public class FilmViewHolder extends RecyclerView.ViewHolder {
 
@@ -18,7 +18,7 @@ public class FilmViewHolder extends RecyclerView.ViewHolder {
         mYear = itemView.findViewById(R.id.tv_year);
     }
 
-    public void bind(ResModel model){
+    public void bind(FilmModel model){
         mTitle.setText(model.getTitle());
         mYear.setText(String.valueOf(model.getYear()));
     }

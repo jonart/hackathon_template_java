@@ -27,10 +27,6 @@ public class ApiUtils {
             builder.readTimeout(20, TimeUnit.SECONDS);
             builder.connectTimeout(20, TimeUnit.SECONDS);
 
-//            builder.authenticator((route, response) -> {
-//                String credential = Credentials.basic(email, password);
-//                return response.request().newBuilder().header("Authorization", credential).build();
-//            });
             if (!BuildConfig.BUILD_TYPE.contains("release")) {
                 builder.addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY));
             }

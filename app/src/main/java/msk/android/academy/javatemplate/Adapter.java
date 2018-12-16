@@ -9,11 +9,11 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import msk.android.academy.javatemplate.network.response.ResModel;
+import msk.android.academy.javatemplate.network.response.FilmModel;
 
 public class Adapter extends RecyclerView.Adapter<FilmViewHolder> {
 
-    private final List<ResModel> mFilms = new ArrayList<>();
+    private final List<FilmModel> mFilms = new ArrayList<>();
 
     public FilmViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
@@ -23,8 +23,8 @@ public class Adapter extends RecyclerView.Adapter<FilmViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull FilmViewHolder filmViewHolder, int position) {
-        ResModel resModel = mFilms.get(position);
-        filmViewHolder.bind(resModel);
+        FilmModel filmModel = mFilms.get(position);
+        filmViewHolder.bind(filmModel);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class Adapter extends RecyclerView.Adapter<FilmViewHolder> {
         return mFilms.size();
     }
 
-    public void addData(List<ResModel> data) {
+    public void addData(List<FilmModel> data) {
         mFilms.addAll(data);
         notifyDataSetChanged();
     }

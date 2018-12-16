@@ -4,19 +4,20 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import msk.android.academy.javatemplate.network.request.ReqModel;
-import msk.android.academy.javatemplate.network.response.ResModel;
+import msk.android.academy.javatemplate.network.response.FilmModel;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
-import retrofit2.http.POST;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface Api {
 
     @GET("/")
-    Observable<ResModel> getString();
+    Observable<FilmModel> getString();
 
 //    @POST("/test")
-//    Observable<ResModel> sendString(@Body ReqModel reqModel);
+//    Observable<FilmModel> sendString(@Body ReqModel reqModel);
 
-    @POST("/gbd")
-    Observable<List<ResModel>> sendSound(@Body ReqModel reqModel);
+    @GET("/gbd")
+    Observable<List<FilmModel>> sendSound(@Query("text") String request);
 }
