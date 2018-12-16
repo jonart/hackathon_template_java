@@ -7,13 +7,13 @@ import android.os.Bundle;
 import android.widget.FrameLayout;
 
 public class MainActivity extends AppCompatActivity implements OpenListCallBack {
-    private FrameLayout container;
+
     private FragmentManager fragmentManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        container = findViewById(R.id.container);
+
 
         fragmentManager = getSupportFragmentManager();
         Fragment fragment = fragmentManager.findFragmentById(R.id.container);
