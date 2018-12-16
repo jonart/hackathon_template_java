@@ -14,7 +14,6 @@ public class MainActivity extends AppCompatActivity implements OpenListCallBack 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         fragmentManager = getSupportFragmentManager();
         Fragment fragment = fragmentManager.findFragmentById(R.id.container);
 

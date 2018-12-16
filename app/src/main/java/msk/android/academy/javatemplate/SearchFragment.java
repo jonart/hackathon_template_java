@@ -89,6 +89,7 @@ public class SearchFragment extends Fragment {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(resModel -> {
+
                                     Bundle args = new Bundle();
                                    // args.put
                                     OpenListCallBack callBack = (OpenListCallBack) getActivity();
