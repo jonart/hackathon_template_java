@@ -43,7 +43,6 @@ import ru.alexbykov.nopermission.PermissionHelper;
 import static android.app.Activity.RESULT_OK;
 
 public class SearchFragment extends Fragment {
-    private MovieAdapter mAdapter;
     String mCurrentPhotoPath;
     private Uri imageUri;
     private final int REQ_CODE_SPEECH_INPUT = 100;
@@ -89,7 +88,11 @@ public class SearchFragment extends Fragment {
                 ApiUtils.getApiService().sendSound(description.getText().toString())
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(resModel -> mAdapter = new MovieAdapter(getActivity(),resModel), error -> {
+                        .subscribe(resModel ->
+
+                                        mAdapter = new MovieAdapter(getActivity(),resModel)
+
+                                , error -> {
                             if (error instanceof SocketTimeoutException) {
                             }
                         });
